@@ -19,7 +19,7 @@ var Harvest = require('harvest'),
     harvest = new Harvest({
         subdomain: "digitalprocoza",
         email: "bob@io.co.za",
-        password: "namutamba@",
+        password: "",
         debug: true
     }),
 
