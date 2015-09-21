@@ -19,68 +19,33 @@ var Harvest = require('harvest'),
     harvest = new Harvest({
         subdomain: "digitalprocoza",
         email: "bob@io.co.za",
-        password: "namutamba@"
+        password: "namutamba@",
+        debug: true
     }),
 
 
-    // Lets try to ask for team members
-    TeamMembers = harvest.People;
+    // // Lets try to ask for team members
+    people = harvest.People;
 
-    TeamMembers.list({}, function(err, team){
-        if(err){
-            console.log(err)
-        }
+    people.list({}, function(err, team){
+        if (err) {
 
-        var users = team.map(function(member) {
-            return member.user;
-        });
-
-        // console.log(users);
-
-        users.map(function(user){
-            // console.log(user)
-
-        });
+            // throw new Error(err);
+        };
+        // console.log(team);
     });
 
-    //ASk for the list of all current projects
+    var params = {id:1090850};
 
-    Projects = harvest.Projects;
-
-    Projects.list({}, function(err, currentProjects){
-        if (err){
-            console.log(err);
-        }
-        var projects = currentProjects.map(function(project){
-            return project.project;
-        });
-        // console.log(active_projects);
-
-        projects.map(function(project){
-            if(project.active === false){
-                console.log(project);
-            }
-        });
-    });
-
-
- // CALL the timer here where to check whose timer is not running and whose is running
-// exaple id = 1090850//Bob
     TimeTracking = harvest.TimeTracking;
-    
-    // for(var i in TimeTracking){
-    //  console.log(i);
-    // };
 
-    // var params = {id:1090850};
-
-TimeTracking.daily({}, function(err, response) {
-    if (err){
+    TimeTracking.daily({}, function(err, response) {
+        if (err){
 
         throw new Error(err);   
     };
 
-    // console.log(response.Project);
+    // console.log(response);
 });
 
 
