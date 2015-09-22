@@ -19,7 +19,7 @@ var Harvest = require('harvest'),
     harvest = new Harvest({
         subdomain: "digitalprocoza",
         email: "bob@io.co.za",
-        password: "namutamba@",
+        password: "",
         debug: true
     }),
 
@@ -44,9 +44,6 @@ var Harvest = require('harvest'),
 
         throw new Error(err);
     };
-    projects = response.map(function(project){
-      return project.project;
-    });
   });
 
 
