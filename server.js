@@ -5,7 +5,7 @@ var http = require('http');
 var Harvest = require("harvest")
 
 //Lets define a port we want to listen to
-const PORT=5000; 
+const PORT=5000;
 
 //We need a function which handles requests and send response
 function handleRequest(request, response){
@@ -19,7 +19,7 @@ var Harvest = require('harvest'),
     harvest = new Harvest({
         subdomain: "digitalprocoza",
         email: "bob@io.co.za",
-        password: "",
+        password: "namutamba@",
         debug: true
     }),
 
@@ -42,11 +42,12 @@ var Harvest = require('harvest'),
     TimeTracking.daily({}, function(err, response) {
         if (err){
 
-        throw new Error(err);   
+        throw new Error(err);
     };
-
-    // console.log(response);
-});
+    projects = response.map(function(project){
+      return project.project;
+    });
+  });
 
 
 //Create a server
