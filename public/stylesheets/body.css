@@ -1,0 +1,493 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono|Droid+Sans+Mono);
+
+
+.ng-cloak{
+	display: none;
+}
+#spells div h1{
+
+	text-transform: uppercase;
+	margin-top: 24px;
+	text-align: center;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	color: #336E7B;
+	line-height: 50px;
+	padding-left: 5px;       
+}
+
+
+#lovespell div img{
+
+	width:150px;
+	height:150px;
+
+}
+#quote{
+	font-family: Raleway;
+	background-color: transparent;
+}
+div#quote.jumbotron p span{
+	text-transform:lowercase;
+	font-weight: bold;
+}
+div#quote.jumbotron p{
+	font-weight: 200;
+	font-size: 21px;
+}
+div#quote.jumbotron{
+	margin-bottom: 500px;
+}
+
+.jumbotron h2{
+         text-align: center;
+         color:#417630;
+         font-size: 20px;
+         font-weight: bold;
+         text-transform: capitalize;
+	
+}
+
+.row p{
+          font-family: Raleway;
+          font-weight: bold;
+          text-align: justify;
+}
+
+
+#lovespell h2 a{
+         text-transform: capitalize;
+         font-family: Ubuntu Mono;
+
+
+}
+#lovespell h2 {
+         text-align: center;
+
+
+}
+
+
+#lovespell h2 a:hover{
+         text-decoration: none;
+
+
+}
+img.centered{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+.jumbotron{
+
+	height: 300px;
+	top:100;
+}
+
+#contacts{
+
+	margin-top:100px;
+	margin-bottom:100px;
+
+}
+
+.Input{
+
+     height:50px;
+     width:800px;
+
+
+}
+
+form{
+    font-family: Raleway;
+	font-size: 20px;
+}
+
+input[placeholder]{
+
+	font-size: 18px;
+
+}
+
+#contact-form div{
+    margin-top: 25px;
+
+}
+.text-area{
+
+	width:800px;
+}
+span a.button{
+   padding:10px;
+   background: #e74c3c;
+   color: #ffffff;
+   font-family: 'Open Sans', sans serif;
+   font-weight: bold;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+ 
+}
+span a.button:hover{
+	text-decoration: none;
+	background:green;
+}
+
+/* starting from here*/
+input[type="submit"],
+button[type="submit"] {
+  font-weight: bold;
+  color: #000000;
+  background-image: none;
+  background-color: #ffffff;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 50px;
+  cursor: pointer;
+  border: 2px solid #000000;
+  white-space: nowrap;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  -moz-transition: all 0.2s ease-in-out 0s;
+  -o-transition: all 0.2s ease-in-out 0s;
+  -ms-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+  display: inline-block;
+}
+
+.line-btn.big,
+input[type="submit"].big,
+button[type="submit"].big {
+  height: 60px;
+  line-height: 60px;
+  padding: 0 70px;
+}
+.line-btn.blue,
+input[type="submit"].blue,
+button[type="submit"].blue {
+  background: #009eca;
+  border: none;
+  color: #ffffff;
+}
+.line-btn.lightblue,
+input[type="submit"].lightblue,
+button[type="submit"].lightblue {
+  background: #58c5c0;
+  border: none;
+  color: #ffffff;
+}
+.line-btn.darkblue,
+input[type="submit"].darkblue,
+button[type="submit"].darkblue {
+  background: #42555c;
+  border: none;
+  color: #ffffff;
+}
+.line-btn.red,
+input[type="submit"].red,
+button[type="submit"].red {
+  background: #e74c3c;
+  border: none;
+  color: #ffffff;
+}
+.line-btn.green,
+input[type="submit"].green,
+button[type="submit"].green {
+  background: #417630;
+  border: none;
+  color: #ffffff;
+}
+.line-btn.orange,
+input[type="submit"].orange,
+button[type="submit"].orange {
+  background: #f6ba70;
+  border: none;
+  color: #ffffff;
+}
+.line-btn.light,
+input[type="submit"].light,
+button[type="submit"].light {
+  background: #dddddd;
+  color: #000000;
+  border: none;
+}
+.line-btn.light:hover,
+input[type="submit"].light:hover,
+button[type="submit"].light:hover {
+  color: #ffffff;
+  background: #417630;
+}
+/* from here*/
+#contact-form {
+	position: relative;
+	z-index: 999;
+}
+
+#contact-form input[type=text],#contact-form input[type=email],#contact-form input[type=tel], .contactForm textarea {
+	width: 100%;
+	background: rgba(227, 231, 228, 1);
+	font-family: 'Open Sans', sans serif;
+	border: 0;
+	font-size:14px;
+	text-align: left;
+	vertical-align: middle;
+	padding:0 10px;
+	margin-bottom: 10px;
+}
+#contact-form input[type=text]:focus,#contact-form input[type=tel]:focus,#contact-form input[type=email]:focus, .contactForm textarea:focus {
+	background: rgba(101, 106, 100, 1);
+	color: #eff1ef;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	transition: background 0.25 ease-in;
+	-moz-transition: background 0.25 ease-in;
+	-webkit-transition: background 0.25 ease-in;
+}
+#contact-form input[type=text], #contact-form input[type=tel],#contact-form input[type=email] {
+	height: 60px;
+	margin-bottom:30px;
+}
+#contact-form [type=submit] {
+	color: #fff;
+	width: 185px;
+	height: 60px;
+	text-shadow: none;
+	font-size: 14px;
+	padding:0.5em;
+	letter-spacing: 0.05em;
+	margin: 0 0 20px 0;
+	display: block;
+	border: 0;
+	text-transform: none;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+#contact-form button[type=submit]:hover, #contact-form button[type=submit]:active {
+	background: #43413e !important;
+}
+#contact-form textarea {
+	padding-top: 1em;
+}
+
+textarea.form-control {
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+
+div.cform-response-output {
+	max-width: 60%;
+	text-align: center;
+	margin-left: 40% !important;
+	margin-top: 0.5em !important;
+	padding: 0.5em !important;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+button[type='submit']{
+	float: right;
+	margin-top: 10px;
+}
+#form-header h1, h2, h3{
+	font-weight: bold;
+	text-align: center;
+
+}
+#form-header h1{
+	padding-bottom: 20px;
+	font-size: 75px;
+	font-family: Raleway;
+    color: #336E7B;
+}
+
+.navbar-fixed-bottom{
+
+	max-height:25px;
+}
+#spells div.row{
+	margin-top: 50px;
+}
+#quote{
+	margin-bottom: 200px;
+}
+	#spells div header{
+	text-transform: uppercase;
+	font-size: 50px;
+	text-align: center;
+	font-weight: bold;
+	font-family: Ubuntu Mono;
+	color: #336E7B;
+	line-height: 50px;
+	padding-left: 5px; 
+	}
+section#spells{
+	margin-bottom: 50px;
+}
+
+.errors span, .errors{
+	text-transform: lowercase;
+	font-family: 'Open Sans', sans serif;
+	font-size: 14px;
+	color:#FF0000;
+	font-weight: bold;
+	font-weight: none;
+}
+.ng-invalid input{
+	border: 1px solid #FF0000;
+}
+
+#thanks{
+	text-align: center;
+	margin-top:200px;
+}
+#thanks h1 span{
+	font-size: 30px;
+}
+#thanks  span a{
+	font-size: 20px;
+	text-decoration: none;
+	font-weight:bold;
+	display: block;
+	border:1px solid lightblue;
+	max-width: 200px;
+	margin:0 auto;
+	font-family: 'Open Sans', sans serif;
+	padding:15px;
+	background: #009eca;
+	color:rgba(255, 255, 255, 1);
+
+}
+#thanks  span a:hover{
+	text-decoration: none;
+	background: #009eca;
+	font-weight: normal;
+	color:rgba(255, 255, 255,0.5);
+}
+footer{
+	height: 50px;
+	background-color: rgba(5,42,2,0.4);
+	display: block;
+	vertical-align: middle;
+	text-align: center;
+}
+footer div span{
+	text-transform: capitalize;
+	font-size: 12px;
+	line-height: 0px;
+
+}
+div.landing-page{
+	max-height: 450px;
+
+}
+
+/* config mobile view here!!!!!!!!!
+* on mobile phones
+*/
+@media screen and (max-width: 580px){
+	div.container{
+		margin-top: 300px;
+	}
+	section#spells div.row{
+		margin:0px;
+	}
+	.col-md-12.col-sm-12.col-xs-12 header{
+      display: none;
+	}
+	.navbar-fixed-top{
+		max-height: 50px
+	}
+	.navbar-nav{
+		float:left;
+		font-size: 12px;
+	}
+	div.continer{
+		background: red;
+		margin-top: 200px;
+		
+	}
+	.navbar-nav li a{
+		font-size: 14px;
+	}
+	.featured{
+		display: none;
+	}
+	span.navbar-brand a{
+		margin-top:0px;
+		font-size: 20px
+	}
+	#form-header hgroup h1, h3{
+		font-size: 20px;
+		text-transform: uppercase;
+	} 
+	footer{
+		display: none;
+	}
+	.navbar-toggle span{
+		background: black;
+		font-weight: bold;
+	}
+	#spells h1{
+		font-size: 30px;
+	}
+
+	div#quote.jumbotron p {
+	font-size: 16px;
+	margin-bottom: 100px;
+}
+	div#quote.jumbotron{
+	margin-top:10px;
+	margin-bottom: 100px;
+}
+	div.landing-page{
+	margin-bottom: 100px;
+
+}
+
+span a.button:hover{
+	text-decoration: none;
+	background:green;
+}
+
+div.row{
+	margin-top:;
+}
+
+}
+
+@media screen and (max-width: 768px){
+	.navbar-toggle span{
+		background: black;
+		font-weight: bold;
+	}
+	.navbar-nav{
+		float:left;
+	}
+	div.spell-header{
+		margin-top:100px;
+	}}
+
+
+	@media screen and (max-width: 990){
+		div.landing-page{
+	   margin-bottom: 300px;
+     }
+            
+}

@@ -1,0 +1,125 @@
+/* ==== Google font ==== */
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono|Droid+Sans+Mono);
+
+/* === fontawesome === */
+@import url('font-awesome.css');
+/* ==== overwrite bootstrap standard ==== */
+@import url('overwrite.css');
+@import url('animate.css');
+/*==========================================================================
+  General
+  ========================================================================== */
+body {
+	 font-family: "Titillium Web", Helvetica, Arial, sans-serif;
+	color:#777;
+	background: #f7f7f7;
+	font-size: 16px;
+	line-height: 1.6em;
+	font-weight: 300;
+	text-shadow: none;
+}
+
+.clear {
+	clear: both;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-style: normal;
+	margin: 0 0 20px 0;
+}
+h1 { font-size: 40px; line-height: 30px; }
+h2 { font-size: 32px; }
+h3 { font-size: 24px; }
+h4 { font-size: 18px; }
+h5 { font-size: 16px; }
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	display: block;
+}
+
+.navbar:not(footer) {
+	line-height: 100px;
+	height: 100px;
+	background-color: rgba(5,42,2,0.4);
+	display: block;
+	vertical-align: middle;
+	text-align: center;
+	margin-bottom: 0;
+	padding-bottom:0;
+}
+
+.navbar .navbar-collapse {
+	margin-bottom: 0;
+	padding-bottom:0;
+	margin-right:20px;
+}
+
+#control{
+         background-color: transparent;
+}
+#control img{
+
+	background-color: black;
+}
+
+.navnar-header h1{
+             float:center;
+
+}
+
+.navbar-brand{
+
+          text-transform: uppercase;
+          font-size: 24px;
+          font-weight:bold;
+          margin:10px;
+          font-family: Raleway;
+}
+.navbar-brand > a{
+           color:white;
+           font-size: 65px;
+           opacity:.8;
+}
+
+
+.navbar-brand > a:hover{
+           text-decoration: none;
+           color:black;
+           font-weight: bold;
+
+}
+.slide-body h2,h3,h4, span{
+
+        text-transform: uppercase;
+        font-family: Raleway;
+        color: #336E7B;
+        font-weight:bold;
+}
+
+.navbar-nav li a{
+
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Ubuntu Mono ;
+	color: #22313F;
+}
+.navbar-nav li a:hover{
+
+           background-color:transparent;
+           border-bottom: 1px solid white;
+}
+.navbar-nav li a.active, 
+.navbar-nav li a:active{
+{
+
+           background-color: transparent;
+           border-bottom: 4px solid white;
+}
+.jumbotron{
+	margin-left:0px;
+	margin-right:0px;
+	background-color: transparent;
+}
+
