@@ -5,13 +5,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('pages/index.jade', { title: 'Home Page' });
+  res.render('index', { title: 'Home Page' });
 });
 
 /*GET the Contacts page*/
 
 router.get('/contacts', function(req, res, next){
-      res.render('pages/contacts', {title:'testing'});
+      res.render('contacts', {title:'testing'});
 
 });
 
