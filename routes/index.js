@@ -3,19 +3,38 @@ var router = express.Router();
 // var nodeMailer = require('nodemailer');
 // var smtpTransport = require('nodemailer-smtp-transport');
 
+
+// Declare Relative Auth credentials
+var CLIENT_ID = '';
+var CLIENT_SECRET = '';
+var HARVEST_HOST = '';
+var REDIRECT_URI = '' 
+
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home Page' });
 });
 
-/*GET the Contacts page*/
+router.get('/redirect_to_harvest', function(req, res, next){
 
-router.get('/contacts', function(req, res, next){
-      res.render('contacts', {title:'testing'});
-
+	res.redirect(HARVEST_HOST+'/oauth2/authorize?client_id='+CLIENT_ID+'&redirect_uri='+REDIRECT_URI+'&state=optional-csrf-token&response_type=code')
 });
 
-router.get('/thanks', function(req, res, next){
+
+router.get('/oauth_redirect', function(req, res, next){
+	options{
+		indentifier:CLIENT_ID,
+		secret:CLIENT_SECRET,
+		redirect_uri:REDIRECT_URI,
+		grant_type:"authorization_code",
+		"Content-Type":"application/x-www-form-urlencoded",
+		"Accept":"application/json"
+	}
+});
+
+router.post(HARVEST_HOST + "/oauth2/token", function(req, res, next){
   res.render('pages/thanks', {title:'Someother title'})
 });
 
