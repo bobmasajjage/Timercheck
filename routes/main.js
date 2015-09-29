@@ -1,23 +1,43 @@
 var express = require('express');
+var request = require('request');
 var router = express.Router();
 // var nodeMailer = require('nodemailer');
 // var smtpTransport = require('nodemailer-smtp-transport');
 
 
 // Declare Relative Auth credentials
-// var CLIENT_ID = '';
-// var CLIENT_SECRET = '';
-// var HARVEST_HOST = '';
-// var REDIRECT_URI = '';
+var CLIENT_ID = 'r8KnxFIeOcDQ9RHsZ2qrEg';
+var CLIENT_SECRET = 'uC9iW4YBQp1_oSz8b8hIsn7IDfC6DGT8XLkuvuet4DXvqSMwupFexjZJgIh4XwDlDre9zogHsi-XhXMAF1C43Q';
+var REDIRECT_URI = "http://72c68b4e.ngrok.com/auth/"
+var HARVEST_HOST = "https://digitalprocoza.harvestapp.com"
 
 
-router.get("https://digitalprocoza.harvestapp.com/oauth2/authorize?client_id=NMBEWl3h0r4KKNhfOsmPJw%3D%3D&redirect_uri=https%3A%2F%2Fexample.com%2Fredirect_path&state=optional-csrf-token&response_type=code", function(req, res, next){
 
-	console.log(res);
+router.get('/', function(req, res, next){
+	res.render('index');
 });
 
 
-// module.exports = router;
+router.get('/redireect_to_harvest', function(req, res, next){
+	res.redirect(HARVEST_HOST + "/oauth2/authorize?client_id="+CLIENT_ID + "&redirect_uri=" + REDIRECT_URI + "&state=optional-csrf-token&response_code=code");
+});
+
+
+router.get('/auth', function(req, res, next){
+	console.dir(res);
+	body = {
+		code:res.data.code,
+		client_id:CLIENT_ID,
+		client_secret:CLIENT_SECRET,
+		redirect_uri:REDIRECT_URI,
+		grant_type:"authorization_code"
+
+	};
+
+
+})
+
+module.exports = router;
 
 // #!/usr/bin/env ruby
 
