@@ -25,7 +25,7 @@ router.get('/redireect_to_harvest', function(req, res, next){
 
 router.get('/auth', function(req, res, next){
 	console.dir(res);
-	body = {
+	var options = {
 		code:res.data.code,
 		client_id:CLIENT_ID,
 		client_secret:CLIENT_SECRET,
@@ -34,42 +34,19 @@ router.get('/auth', function(req, res, next){
 
 	};
 
+	request.post(HARVEST_HOST+"oauth2/token", options, function(err,response, body){
+		if(err){
+			console.log();
+		}
+		return response;
+	});
+
 
 })
 
 module.exports = router;
 
-// #!/usr/bin/env ruby
 
-// # This requires the sinatra and httparty gems to work
-// # In your terminal: gem install sinatra httparty
-
-// # To run: ruby harvest_api_oauth_sample.rb
-
-// # This sample emulates the typical Authorization Code flow for server-side authorization
-
-// # You'll need to change these to match the app you registered at https://platform.harvestapp.com/oauth2_clients
-// # Running this locally? Make sure you use http://localhost:4567/oauth_redirect for the redirect URL
-
-// CLIENT_ID = "r8KnxFIeOcDQ9RHsZ2qrEg"
-// CLIENT_SECRET = "uC9iW4YBQp1_oSz8b8hIsn7IDfC6DGT8XLkuvuet4DXvqSMwupFexjZJgIh4XwDlDre9zogHsi-XhXMAF1C43Q"
-
-// # And the rest should now work
-
-// begin
-//   require 'rubygems'
-//   require 'sinatra'
-//   require 'httparty'
-// rescue LoadError => e
-//   puts "\nYou need to install some gems!"
-//   puts "gem install sinatra httparty\n\n"
-//   puts "---- ORIGINAL ERROR ----"
-//   puts e
-//   exit
-// end
-
-// REDIRECT_URI = "http://72c68b4e.ngrok.com/auth/"
-// HARVEST_HOST = "https://digitalprocoza.harvestapp.com"
 
 // get '/' do
 //   erb :index
