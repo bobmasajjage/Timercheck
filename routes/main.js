@@ -19,7 +19,7 @@ router.get('/', function(req, res, next){
 
 
 router.get('/redireect_to_harvest', function(req, res, next){
-	res.redirect(HARVEST_HOST + "/oauth2/authorize?client_id="+CLIENT_ID + "&redirect_uri=" + REDIRECT_URI + "&state=optional-csrf-token&response_code=code");
+	res.redirect(HARVEST_HOST + "/oauth2/authorize?client_id=" + CLIENT_ID+"&redirect_uri=" + REDIRECT_URI + "&state=optional-csrf-token&response_type=code");
 });
 
 router.get('/auth', function(req, res, next) {
