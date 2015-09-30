@@ -22,27 +22,37 @@ router.get('/redireect_to_harvest', function(req, res, next){
 	res.redirect(HARVEST_HOST + "/oauth2/authorize?client_id="+CLIENT_ID + "&redirect_uri=" + REDIRECT_URI + "&state=optional-csrf-token&response_code=code");
 });
 
-
-router.get('/auth', function(req, res, next){
+router.get('/auth/', function(req, res, next){
 	console.dir(res);
-	var options = {
-		code:res.data.code,
-		client_id:CLIENT_ID,
-		client_secret:CLIENT_SECRET,
-		redirect_uri:REDIRECT_URI,
-		grant_type:"authorization_code"
-
-	};
-
-	request.post(HARVEST_HOST+"oauth2/token", options, function(err,response, body){
-		if(err){
-			console.log();
+	request.post({
+		url:HARVEST_HOST+"oauth2/token",
+		headers:{
+			"Content-Type":"application/x-www-form-urlencoded"
+			"Accept":"application/json"
+		},
+		body:{
+			code:req.query.code,
+			client_id:CLIENT_ID,
+			client_secret:CLIENT_SECRET,
+			redirect_uri:REDIRECT_URI,
+			grant_type:"authorization_code"
+		}, 
+		function(err, response, body){
+			if(err){
+				console.log(err);
+			};
+			var data  = body;
+			return data;
 		}
-		return response;
 	});
+}) // end of /auth
 
 
-})
+router.get('/authenticated', function(req, res, next){
+
+
+});
+
 
 module.exports = router;
 
