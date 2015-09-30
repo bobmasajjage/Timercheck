@@ -1,0 +1,37 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	body-sizing: border-box;
+	font-family:sans-serif, Helvetica, Aerial;
+
+}
+
+.container {
+	max-width: 900em;
+	margin: 0 auto;
+}
+
+.header, .main-content {
+	text-align: center;
+	margin:5em;
+}
+
+h1 {
+	font-size: 3.16em;
+	text-transform: uppercase;
+}
+
+.main-content a {
+	display: inline-block;
+	text-decoration: none;
+	height: 50px;
+	width: 50%;
+	font-size: 20px;
+	background-color: rgba( 0, 0 , 0 , .5);
+	padding-top: 15px;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, .9);
+}

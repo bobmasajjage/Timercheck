@@ -8,7 +8,7 @@ var router = express.Router();
 // Declare Relative Auth credentials
 var CLIENT_ID = 'r8KnxFIeOcDQ9RHsZ2qrEg';
 var CLIENT_SECRET = 'uC9iW4YBQp1_oSz8b8hIsn7IDfC6DGT8XLkuvuet4DXvqSMwupFexjZJgIh4XwDlDre9zogHsi-XhXMAF1C43Q';
-var REDIRECT_URI = "http://72c68b4e.ngrok.com/auth/"
+var REDIRECT_URI = "http://49dedd03.ngrok.com/auth"
 var HARVEST_HOST = "https://digitalprocoza.harvestapp.com"
 
 
@@ -22,7 +22,7 @@ router.get('/redireect_to_harvest', function(req, res, next){
 	res.redirect(HARVEST_HOST + "/oauth2/authorize?client_id="+CLIENT_ID + "&redirect_uri=" + REDIRECT_URI + "&state=optional-csrf-token&response_code=code");
 });
 
-router.get('/auth/', function(req, res, next) {
+router.get('/auth', function(req, res, next) {
 	request.post({
 		url: HARVEST_HOST+"oauth2/token",
 		form: {
