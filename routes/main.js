@@ -27,8 +27,7 @@ router.get('/auth', function(req, res, next) {
 	var options = {
 		url:HARVEST_HOST+"/oauth2/token",
 		method:'POST',
-		json:true,
-		body: {
+		formData: {
 			code: req.query.code,
 			client_id: CLIENT_ID,
 			client_secret: CLIENT_SECRET,
@@ -56,5 +55,5 @@ router.get('/authenticated', function(req, res, next){
 	res.render('_response', {})
 });
 
-
+ 
 module.exports = router;
