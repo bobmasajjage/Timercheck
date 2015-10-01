@@ -51,7 +51,7 @@ router.get('/auth', function(req, res, next) {
 }); // end of /auth
 
 
-router.get('/authenticated', function(req, res, next){
+router.get('/authenticated', function(req, res, next) {
 	res.render('_response', {})
 });
 
