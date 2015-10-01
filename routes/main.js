@@ -13,7 +13,7 @@ var HARVEST_HOST = "https://digitalprocoza.harvestapp.com"
 
 
 
-router.get('/', function(req, res, next){
+router.get('/', function(req, res, next) {
 	return res.render('index');
 });
 
@@ -34,11 +34,13 @@ router.get('/auth', function(req, res, next) {
 			redirect_uri: REDIRECT_URI,
 			grant_type: "authorization_code"
 		},
+
 		headers: {
 			"Content-Type": "application/x-www-form-urlencoded",
 			"Accept": "application/json"
 		}
 	};
+
 	function callBack(err, response, body){
 		if (!err && response.statusCode == 200 ) {
 			console.log('Server Response: ', body);
@@ -47,6 +49,7 @@ router.get('/auth', function(req, res, next) {
 		};
 
 	};
+	
 	request(options, callBack); // Triggers the call
 }); // end of /auth
 
