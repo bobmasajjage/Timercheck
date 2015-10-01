@@ -14,7 +14,7 @@ var HARVEST_HOST = "https://digitalprocoza.harvestapp.com"
 
 
 router.get('/', function(req, res, next){
-	res.render('index');
+	return res.render('index');
 });
 
 
@@ -23,54 +23,37 @@ router.get('/redireect_to_harvest', function(req, res, next){
 });
 
 router.get('/auth', function(req, res, next) {
-	var data = {};
-	request.post({
-		url:HARVEST_HOST+"/oauth2/token",
-		headers:{
-			"Content-Type":"application/x-www-form-urlencoded",
-			"Accept":"application/json"
-		},
-		options:{
-			code:req.query.code,
-			client_id:CLIENT_ID,
-			client_secret:CLIENT_SECRET,
-			redirect_uri:REDIRECT_URI,
-			grant_type:"authorization_code"}
-		},
 
-		function(err, response, body){
-			if(err){
-				console.log(err);
-			};
-			data = body;
-		});
-}) // end of /auth
+	var options = {
+		url:HARVEST_HOST+"/oauth2/token",
+		method:'POST',
+		formData: {
+			code: req.query.code,
+			client_id: CLIENT_ID,
+			client_secret: CLIENT_SECRET,
+			redirect_uri: REDIRECT_URI,
+			grant_type: "authorization_code"
+		},
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded",
+			"Accept": "application/json"
+		}
+	};
+	function callBack(err, response, body){
+		if (!err && response.statusCode == 200 ) {
+			console.log('Server Response: ', body);
+		} else {
+			console.log('Call failed with error:', err);
+		};
+
+	};
+	request(options, callBack); // Triggers the call
+}); // end of /auth
 
 
 router.get('/authenticated', function(req, res, next){
-
+	res.render('_response', {})
 });
 
-
+ 
 module.exports = router;
-
-
-	// request.post({
-	// 	url: HARVEST_HOST+"oauth2/token",
-	// 	form: {
-	// 	code: req.query.code,
-	// 	client_id: CLIENT_ID,
-	// 	client_secret: CLIENT_SECRET,
-	// 	redirect_uri: REDIRECT_URI,
-	// 	grant_type: "authorization_code"}
-	// },
-	// 	function(err, httpResponse, body) {
-	// 		console.log(req.headers)
-	// 		if(err) {
-	// 			console.log(err);
-	// 		};
-
-	// 		var data = body;
-	// 		console.log(httpResponse);
-	// 		return data;
-	// 	});
