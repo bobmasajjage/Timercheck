@@ -22,7 +22,7 @@ function write_token (dataObject) {
 		var tokenFile = './credentials.json';
 
 		try {
-			fs.writeFile(file, JSON.stringify(data, null, 4), function(err) {
+			fs.writeFile(tokenFile, JSON.stringify(data, null, 4), function(err) {
 				if (err){
 					console.log('something went wrong in write token: ', err);
 				} else {
@@ -30,9 +30,21 @@ function write_token (dataObject) {
 				};
 			});
 		} catch (err) {
-			console.log(err);
+			console.log('Something wiered happened in writing token', err);
 		};
 	};
+
+
+function get_token(){
+	try {
+		var credentials = JSON.parse(fs.readFileSync('./credentials.json'));
+		return credentials;
+
+	} catch (err) {
+
+		console.log('failed to load credentials', err);
+	}
+};
 
 router.get('/', function(req, res, next) {
 	return res.render('index');
@@ -82,29 +94,21 @@ router.get('/auth', function(req, res, next) {
 }); // end of /auth
 
 router.get('/authenticated', function(req, res, next) {
-	var data = {};
-	try {
-		var credentials = JSON.parse(fs.readFileSync('./credentials.json'));
-		data = credentials;
-
-	} catch (err) {
-
-		console.log('failed to load credentials', err);
-	}
-
+	var data = get_token();
 	if ( data === {} || data == false ) {
 		res.redirect('/')
 	};
-	console.log(data);
-	res.render('_response', data)
+	// console.log(data);
+	res.render('_response',  function(err){
+		if (err) {
+			console.log('Error in authenticated', err)
+		};
+	});
 
 });
 
-router.get('/test', function(req, res, next) {
-	console.log('Starting.........');
-	write_token('123', '143');
+router.get('/team', function(req, res, next) {
 
-	console.log('process done .........')
-});
+})
  
 module.exports = router;
