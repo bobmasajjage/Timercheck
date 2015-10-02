@@ -1,6 +1,8 @@
+var fs = require('fs');
 var express = require('express');
 var request = require('request');
 var router = express.Router();
+
 // var nodeMailer = require('nodemailer');
 // var smtpTransport = require('nodemailer-smtp-transport');
 
@@ -55,7 +57,9 @@ router.get('/auth', function(req, res, next) {
 
 
 router.get('/authenticated', function(req, res, next) {
-	res.render('_response', {})
+	// res.render('_response', {})
+	var credentials = fs.readFileSync('../credentials.json');
+	console.log(credentials);
 });
 
  
