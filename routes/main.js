@@ -6,27 +6,25 @@ var router = express.Router();
 // var nodeMailer = require('nodemailer');
 // var smtpTransport = require('nodemailer-smtp-transport');
 
-
 // Declare Relative Auth credentials
 var CLIENT_ID = 'r8KnxFIeOcDQ9RHsZ2qrEg';
 var CLIENT_SECRET = 'uC9iW4YBQp1_oSz8b8hIsn7IDfC6DGT8XLkuvuet4DXvqSMwupFexjZJgIh4XwDlDre9zogHsi-XhXMAF1C43Q';
 var REDIRECT_URI = "http://49dedd03.ngrok.com/auth"
 var HARVEST_HOST = "https://digitalprocoza.harvestapp.com"
 
-
 // Write_token help save the token and the refresh token 
-function write_token (_token, _refreshToken) {
+function write_token (dataObject) {
 		var data = {
-			token:_token,
-			refreshToken:_refreshToken
+			token: dataObject.access_token,
+			refreshToken: dataObject.refresh_token
 		};
 
-		var file = './credentials.json';
+		var tokenFile = './credentials.json';
 
 		try {
 			fs.writeFile(file, JSON.stringify(data, null, 4), function(err) {
 				if (err){
-					console.log(err);
+					console.log('something went wrong in write token: ', err);
 				} else {
 					console.log('Files updated')
 				};
@@ -39,7 +37,6 @@ function write_token (_token, _refreshToken) {
 router.get('/', function(req, res, next) {
 	return res.render('index');
 });
-
 
 router.get('/redireect_to_harvest', function(req, res, next){
 	res.redirect(HARVEST_HOST + "/oauth2/authorize?client_id=" + CLIENT_ID+"&redirect_uri=" + REDIRECT_URI + "&state=optional-csrf-token&response_type=code");
@@ -66,34 +63,42 @@ router.get('/auth', function(req, res, next) {
 
 	function callBack(err, response, body){
 		if (!err && response.statusCode == 200 ) {
-			console.log('Server Response: ', body);
+			var data  = JSON.parse(body)
+			write_token(JSON.parse(body));
+			res.redirect('/authenticated')
+
 		} else {
 			console.log('Call failed with error:', err);
 		};
-
 	};
-	
-	request(options, callBack); // Triggers the call
+
+	// Trigger an HTTP call
+	try {
+		request(options, callBack);
+	} catch (err) {
+		console.log(err);
+	};
+
 }); // end of /auth
 
-
 router.get('/authenticated', function(req, res, next) {
-	console.log("right in the /authenticated block");
-	// res.render('_response', {})
-	console.log('Starting.........');
+	var data = {};
 	try {
 		var credentials = JSON.parse(fs.readFileSync('./credentials.json'));
-		console.log(credentials.token);
-		console.log(credentials.refreshToken);
+		data = credentials;
 
 	} catch (err) {
 
-		console.log(err);
+		console.log('failed to load credentials', err);
 	}
+
+	if ( data === {} || data == false ) {
+		res.redirect('/')
+	};
+	console.log(data);
+	res.render('_response', data)
+
 });
-
-
-
 
 router.get('/test', function(req, res, next) {
 	console.log('Starting.........');
