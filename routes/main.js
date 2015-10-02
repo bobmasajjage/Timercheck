@@ -98,6 +98,7 @@ router.get('/authenticated', function(req, res, next) {
 	if ( data === {} || data == false ) {
 		res.redirect('/')
 	};
+
 	// console.log(data);
 	res.render('_response',  function(err){
 		if (err) {
@@ -108,6 +109,23 @@ router.get('/authenticated', function(req, res, next) {
 });
 
 router.get('/team', function(req, res, next) {
+
+	var credentials = get_token();
+	var auth_token = credentials.token;
+	var self = this;
+	var members = {};
+	// Trigger an HTTP call
+	try {
+		request(HARVEST_HOST+"/people?token="+auth_token, function(err, response, body){
+			if (err) {
+				console.log('calling /people failed with error: ', err);
+			};
+			self.members = JSON.parse(body);
+		});
+	} catch (err) {
+		console.log('couldnot make an get request error: ', err);
+	};
+
 
 })
  
