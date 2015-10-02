@@ -14,6 +14,27 @@ var REDIRECT_URI = "http://49dedd03.ngrok.com/auth"
 var HARVEST_HOST = "https://digitalprocoza.harvestapp.com"
 
 
+// Write_token help save the token and the refresh token 
+function write_token (_token, _refreshToken) {
+		var data = {
+			token:_token,
+			refreshToken:_refreshToken
+		};
+
+		var file = './credentials.json';
+
+		try {
+			fs.writeFile(file, JSON.stringify(data, null, 4), function(err) {
+				if (err){
+					console.log(err);
+				} else {
+					console.log('Files updated')
+				};
+			});
+		} catch (err) {
+			console.log(err);
+		};
+	};
 
 router.get('/', function(req, res, next) {
 	return res.render('index');
@@ -57,10 +78,28 @@ router.get('/auth', function(req, res, next) {
 
 
 router.get('/authenticated', function(req, res, next) {
+	console.log("right in the /authenticated block");
 	// res.render('_response', {})
-	var credentials = fs.readFileSync('../credentials.json');
-	console.log(credentials);
+	console.log('Starting.........');
+	try {
+		var credentials = JSON.parse(fs.readFileSync('./credentials.json'));
+		console.log(credentials.token);
+		console.log(credentials.refreshToken);
+
+	} catch (err) {
+
+		console.log(err);
+	}
 });
 
+
+
+
+router.get('/test', function(req, res, next) {
+	console.log('Starting.........');
+	write_token('123', '143');
+
+	console.log('process done .........')
+});
  
 module.exports = router;
