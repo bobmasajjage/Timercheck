@@ -137,14 +137,19 @@ router.get('/authenticated', function(req, res, next) {
     if ( data === {} || data == false ) {
         res.redirect('/')
     };
+    
+    console.log(data);
 
-    // console.log(data);
-    res.render('_response',  function(err){
-        if (err) {
-            console.log('Error in authenticated', err)
-        };
-    });
+    try  {
+        res.render('_response',  function(err){
+            if (err) {
+                console.log('Error in authenticated', err)
+            };
+        });
 
+    } catch (e) {
+        console.log('rendering _response fiale in /authenticated with error: ', err);
+    };
 });
 
 router.get('/refresh', function(req, res, next){
