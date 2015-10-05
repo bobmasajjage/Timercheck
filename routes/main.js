@@ -172,7 +172,7 @@ router.get('/team', function(req, res, next) {
     var members = {};
 
     var options = {
-        url:HARVEST_HOST+"/daily?",
+        url:HARVEST_HOST+"/people?",
         method:'GET',
         formData: {
             access_token: auth_token
@@ -186,9 +186,9 @@ router.get('/team', function(req, res, next) {
     function callBack(err, response, body){
         if (!err && response.statusCode == 200 ) {
             var data  = JSON.parse(body);
-            console.log('who_am_i server response: ', data);
+            console.log('getting people server response: ', data);
         } else {
-            console.log('Calling harvest/account/who_am_i fails with error:', err);
+            console.log('requesting harvest people failed with error:', err);
         };
     };
 
