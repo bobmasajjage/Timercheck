@@ -3,10 +3,14 @@
 Harvest timer notification integration 
 
 
-# running
+# Running
 
     ``` cd harvestApp_api_integration ```
-    ## edit server.js to add in your subdomain and company credentials
+    ## edit routes/main.js to add in your subdomain,
+    ## install the node dependecies ` npm install`
 
-    ``` node server.js ```
+    ```  npm run dev```
 
+    ## Open your browser and navigate to localhost:3000
+    
+    ## allow app to use your harvest data
