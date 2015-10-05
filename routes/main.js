@@ -165,14 +165,12 @@ router.get('/refresh', function(req, res, next){
 router.get('/team', function(req, res, next) {
 
     var credentials = get_tokens();
-    console.log(credentials);
     var auth_token = credentials.token;
-    console.log(auth_token);
     var self = this;
     var members = {};
 
     var options = {
-        url:HARVEST_HOST+"/people?",
+        url:HARVEST_HOST+"/reports#client",
         method:'GET',
         formData: {
             access_token: auth_token
@@ -197,6 +195,40 @@ router.get('/team', function(req, res, next) {
         request(options, callBack);
     } catch (err) {
         console.log('calling /team failed with error: ', err);
+    };
+});
+
+router.get('/who', function(req, res, next){
+    var credentials = get_tokens();
+    var auth_token = credentials.token;
+    var myaccount= {};
+
+    var options = {
+        url:HARVEST_HOST+"/daily",
+        method:'GET',
+        formData: {
+            access_token: auth_token
+        },
+
+        headers: {
+            "Accept": "application/json"
+        }
+    };
+
+    function callBack(err, response, body){
+        if (!err && response.statusCode == 200 ) {
+            var data  = JSON.parse(body);
+            console.log('getting who_i_am server response: ', data);
+        } else {
+            console.log('requesting harvest who-iam failed with error:', err);
+        };
+    };
+
+    // Trigger an HTTP call
+    try {
+        request(options, callBack);
+    } catch (err) {
+        console.log('calling who-iam failed with error: ', err);
     };
 });
  
