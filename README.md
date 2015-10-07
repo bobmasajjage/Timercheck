@@ -3,10 +3,17 @@
 Harvest timer notification integration 
 
 
-# running
+# Running
 
-    ``` cd harvestApp_api_integration ```
-    ## edit server.js to add in your subdomain and company credentials
+`cd`  harvestApp_api_integration
+###### edit routes/main.js to add in your subdomain
 
-    ``` node server.js ```
+###### install the node dependecies ` npm install`
 
+`npm` run dev
+
+###### Open your browser and navigate to localhost:3000
+
+###### allow app to use your harvest data
+
+###### After allowing access to your harvest account, Auth tokens will be saved to credentials.json file
