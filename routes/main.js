@@ -7,8 +7,8 @@ var router = express.Router();
 // var smtpTransport = require('nodemailer-smtp-transport');
 
 // Declare Relative Auth credentials
-var CLIENT_ID = 'r8KnxFIeOcDQ9RHsZ2qrEg';
-var CLIENT_SECRET = 'uC9iW4YBQp1_oSz8b8hIsn7IDfC6DGT8XLkuvuet4DXvqSMwupFexjZJgIh4XwDlDre9zogHsi-XhXMAF1C43Q';
+var CLIENT_ID = 'your client id';
+var CLIENT_SECRET = 'client secret';
 var REDIRECT_URI = "http://49dedd03.ngrok.com/auth"
 var HARVEST_HOST = "https://digitalprocoza.harvestapp.com"
 
